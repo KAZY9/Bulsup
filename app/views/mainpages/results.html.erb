@@ -1,0 +1,31 @@
+<%= form_with model: @user_info, url: top_path, method: :get do |f| %>
+<p><%= f.label :sex, "性別" %><br>
+<%= @user_info.sex %>
+</p>
+<p><%= f.label :age, "年齢" %><br> 
+<%= @user_info.age %><span>歳</span>
+</p>
+
+</p>
+<p><%= f.label :height, "身長" %><br> 
+<%=  @user_info.height %><span>cm</span>
+</p>
+
+</p>
+<p><%= f.label :weight, "体重" %><br>
+<%= @user_info.weight %><span>kg</span>
+</p>
+
+<p><%= f.label :activity_amount, "1日の活動レベル" %><br> 
+<%= @activity.level %>
+<%= @activity.activity %>
+</p>
+
+<p><%= f.label :calorie_consumption, "基礎代謝" %><br>
+<%= @basal_metabolism %><span>kcal</span></p>
+
+<p><%= f.label :calorie_consumption, "1日の総消費カロリー" %><br>
+<%= @calorie_consumption %><span>kcal</span></p>
+
+<% end %>
+
