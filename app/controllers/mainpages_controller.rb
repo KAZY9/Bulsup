@@ -19,6 +19,8 @@ class MainpagesController < ApplicationController
         @activity = Activity.find_by(id: @user_info.activity_level)
         @basal_metabolism = @user_info.calorie_cunsumption_calculate(@user_info.weight, @user_info.height, @user_info.age, @user_info.sex)
         @calorie_consumption = (@basal_metabolism * @activity.index).round(0)
+        @result = @user_info.calculate_calorie_intake(@user_info.start_date, @user_info.end_date, @user_info.weight_to_gain)
+        @calorie_intake = (@result[:surplus_calorie] + @calorie_consumption).round(0)
     end
 
     private
@@ -29,7 +31,10 @@ class MainpagesController < ApplicationController
             :sex,
             :weight, 
             :height,
-            :activity_level
+            :activity_level,
+            :start_date,
+            :end_date,
+            :weight_to_gain
         )
     end
 end

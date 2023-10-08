@@ -26,10 +26,10 @@ ActiveRecord::Schema.define(version: 2023_10_08_035830) do
     t.string "sex", null: false
     t.float "height", null: false
     t.float "weight", null: false
-    t.integer "activity_level", default: 2, null: false
-    t.float "weight_to_gain", default: 1.0, null: false
+    t.integer "activity_level", null: false
+    t.float "weight_to_gain", null: false
     t.date "start_date", default: "2023-10-08", null: false
-    t.date "end_date", default: "2023-11-07", null: false
+    t.date "end_date", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

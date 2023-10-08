@@ -33,12 +33,22 @@
     <div lass="field">
         <%= f.label :activity_amount, "1日の活動レベル" %><br> 
         <% @activity_levels.each do |activity_level| %>
-        <%= f.radio_button :activity_level, activity_level.id, id: "activity_#{activity_level.id}" %>
-        <%= f.label :activity_level, for: "activity_#{activity_level.id}" do %>
-            <%= activity_level.level %>
-            <span><%= activity_level.activity %></span>
-        <% end %><br>
+            <%= f.radio_button :activity_level, activity_level.id, id: "activity_#{activity_level.id}" %>
+            <%= f.label :activity_level, for: "activity_#{activity_level.id}" do %>
+                <%= activity_level.level %>
+                <span><%= activity_level.activity %></span>
+            <% end %><br>
         <% end %>
+    </div>
+
+    <div lass="field">
+        <%= f.label :peirod_of_gaining_weight, "増量期間" %><br> 
+        <%= f.date_field :start_date %>から<%= f.date_field :end_date %>まで
+    </div>
+
+    <div lass="field">
+        <%= f.label :weight_to_gain, "目標増量" %><br> 
+        <%= f.text_field :weight_to_gain %>kg 増やしたい
     </div>
 
     <div lass="field"> 
