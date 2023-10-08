@@ -1,0 +1,12 @@
+ja:
+  activerecord:
+    attributes:
+      calorie:
+        age: 年齢
+        sex: 性別
+        height: 身長
+        weight: 体重
+        activity_level: 活動量 
+        weight_to_gain: 目標増量
+        start_date: 開始日
+        end_date: 目標到達日

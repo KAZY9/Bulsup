@@ -1,36 +1,47 @@
 <p>以下の項目を入力・選択してください。</p> 
-<%= form_with  model: nil, url: top_url, method: :post do |f| %> 
+<%= form_with  model: @user_info, url: calculate_url, method: :post do |f| %>
+    <% if @user_info.errors.any? %>
+        <ul>
+            <% @user_info.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+        </ul>
+    <% end %>
 
-<p>
-<%= f.radio_button :sex, '男性', id: "male" %>
-<%= f.label :sex_male, '男性', for: "male" %>
-<%= f.radio_button :sex, '女性', id: "female" %>
-<%= f.label :sex_female, '女性', for: "female" %>
-</p>
+    <div class="field">
+        <%= f.radio_button :sex, '男性', id: "male" %>
+        <%= f.label :sex_male, '男性', for: "male" %>
+        <%= f.radio_button :sex, '女性', id: "female" %>
+        <%= f.label :sex_female, '女性', for: "female" %>
+    </div>
 
-<p><%= f.label :age, "年齢" %><br> 
-<%= f.text_field :age %><span>歳</span>
-</p>
+    <div lass="field">
+        <%= f.label :age, "年齢" %><br> 
+        <%= f.text_field :age %><span>歳</span>
+    </div>
 
-<p><%= f.label :height, "身長" %><br> 
-<%= f.text_field :height %><span>cm</span>
-</p>
+    <div lass="field">
+        <%= f.label :height, "身長" %><br> 
+        <%= f.text_field :height %><span>cm</span>
+    </div>
 
-<p><%= f.label :weight, "体重" %><br> 
-<%= f.text_field :weight %><span>kg</span>
-</p>
+    <div lass="field">
+        <%= f.label :weight, "体重" %><br> 
+        <%= f.text_field :weight %><span>kg</span>
+    </div>
 
-<p><%= f.label :activity_amount, "1日の活動レベル" %><br> 
-<% @activity_levels.each do |activity_level| %>
-   <%= f.radio_button :activity_level, activity_level.id, id: "activity_#{activity_level.id}" %>
-   <%= f.label :activity_level, for: "activity_#{activity_level.id}" do %>
-    <%= activity_level.level %>
-    <span><%= activity_level.activity %></span>
-   <% end %><br>
-<% end %>
-</p>
+    <div lass="field">
+        <%= f.label :activity_amount, "1日の活動レベル" %><br> 
+        <% @activity_levels.each do |activity_level| %>
+        <%= f.radio_button :activity_level, activity_level.id, id: "activity_#{activity_level.id}" %>
+        <%= f.label :activity_level, for: "activity_#{activity_level.id}" do %>
+            <%= activity_level.level %>
+            <span><%= activity_level.activity %></span>
+        <% end %><br>
+        <% end %>
+    </div>
 
-<p> 
-<%= f.submit "計算する" %>
-</p>
+    <div lass="field"> 
+        <%= f.submit "計算する" %>
+    </div>
 <% end %>

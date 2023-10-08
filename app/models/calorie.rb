@@ -1,4 +1,9 @@
 class Calorie < ApplicationRecord
+    validates :sex, presence: true
+    validates :age, presence: true
+    validates :height, presence: true
+    validates :weight, presence: true
+    validates :activity_level, presence: true
 
     def calorie_cunsumption_calculate(weight, height, age, sex)
         if sex == "男性"

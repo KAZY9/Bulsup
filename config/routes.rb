@@ -2,6 +2,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'mainpages#top'
   get '/top', to: 'mainpages#top'
-  post '/top', to: 'mainpages#calculate'
+  post '/calculate', to: 'mainpages#calculate'
   get '/results', to: 'mainpages#results'
 end
