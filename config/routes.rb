@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get '/top', to: 'mainpages#top'
   post '/calculate', to: 'mainpages#calculate'
   get '/results', to: 'mainpages#results'
+  post '/suggest_meal', to: 'mainpages#suggest_meal'
 end

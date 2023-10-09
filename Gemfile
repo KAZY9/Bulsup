@@ -9,6 +9,8 @@ gem 'rails', '~> 6.1.7'
 gem 'dotenv-rails'
 
 gem 'rails-i18n'
+
+gem 'ruby-openai'
 # Use mysql as the database for Active Record
 gem 'mysql2', '~> 0.5'
 # Use Puma as the app server

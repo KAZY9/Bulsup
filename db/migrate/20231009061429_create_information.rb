@@ -1,6 +1,6 @@
-class CreateCalories < ActiveRecord::Migration[6.1]
+class CreateInformation < ActiveRecord::Migration[6.1]
   def change
-    create_table :calories do |t|
+    create_table :information do |t|
       t.integer :user_id
       t.integer :age, :null => false
       t.string :sex, :null => false
