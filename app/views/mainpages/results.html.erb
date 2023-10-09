@@ -21,11 +21,20 @@
 <%= @activity.activity %>
 </p>
 
-<p><%= f.label :calorie_consumption, "基礎代謝" %><br>
+<p><%= f.label :period_of_bulking, "増量期間" %><br>
+<%= @formatted_start_date %>から<%= @formatted_end_date %>までの<%= @result[:days_differences] %>日間</p>
+
+<p><%= f.label :weight_to_gain, "目標増量" %><br>
+<%= @user_info.weight_to_gain %>kg 増やしたい</p>
+
+<p><%= f.label :basal_metabolism, "基礎代謝" %><br>
 <%= @basal_metabolism %><span>kcal</span></p>
 
-<p><%= f.label :calorie_consumption, "1日の総消費カロリー" %><br>
+<p><%= f.label :calorie_consumption, "1日の消費カロリー" %><br>
 <%= @calorie_consumption %><span>kcal</span></p>
+
+<p><%= f.label :calorie_intake, "1日の必要摂取カロリー" %><br>
+<%= @calorie_intake %><span>kcal</span></p>
 
 <% end %>
 
