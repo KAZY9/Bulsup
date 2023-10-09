@@ -9,6 +9,7 @@
     <% end %>
 
     <div class="field">
+        <%= f.label :sex, '性別' %>
         <%= f.radio_button :sex, '男性', id: "male" %>
         <%= f.label :sex_male, '男性', for: "male" %>
         <%= f.radio_button :sex, '女性', id: "female" %>

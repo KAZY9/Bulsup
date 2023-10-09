@@ -16,6 +16,8 @@ class MainpagesController < ApplicationController
 
     def results
         @user_info = Calorie.find(params[:id])
+        @formatted_start_date = @user_info.change_date_format(@user_info.start_date)
+        @formatted_end_date = @user_info.change_date_format(@user_info.end_date)
         @activity = Activity.find_by(id: @user_info.activity_level)
         @basal_metabolism = @user_info.calorie_cunsumption_calculate(@user_info.weight, @user_info.height, @user_info.age, @user_info.sex)
         @calorie_consumption = (@basal_metabolism * @activity.index).round(0)

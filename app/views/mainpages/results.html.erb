@@ -22,7 +22,7 @@
 </p>
 
 <p><%= f.label :period_of_bulking, "増量期間" %><br>
-<%= @user_info.start_date %>から<%= @user_info.end_date %>までの<%= @result[:days_differences] %>日間</p>
+<%= @formatted_start_date %>から<%= @formatted_end_date %>までの<%= @result[:days_differences] %>日間</p>
 
 <p><%= f.label :weight_to_gain, "目標増量" %><br>
 <%= @user_info.weight_to_gain %>kg 増やしたい</p>
