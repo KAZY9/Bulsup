@@ -1,4 +1,4 @@
-class Calorie < ApplicationRecord
+class Information < ApplicationRecord
     validates :sex, presence: true
     validates :age, presence: true
     validates :height, presence: true
@@ -27,12 +27,12 @@ class Calorie < ApplicationRecord
     def calculate_calorie_intake(start_date, end_date, weight_to_gain)
         days_differences = (end_date - start_date).to_i
         surplus_calorie = (7200 * weight_to_gain) / days_differences
-      
+
         result = {
-          days_differences: days_differences,
-          surplus_calorie: surplus_calorie
+            days_differences: days_differences,
+            surplus_calorie: surplus_calorie
         }
-      
+    
         return result
     end
 

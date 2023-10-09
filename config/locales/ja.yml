@@ -1,7 +1,7 @@
 ja:
   activerecord:
     attributes:
-      calorie:
+      information:
         age: 年齢
         sex: 性別
         height: 身長

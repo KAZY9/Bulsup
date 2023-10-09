@@ -1,0 +1,8 @@
+// パーシャルの内容を取得
+var partialContent = "<%= j(render 'mainpages/meal_content', meal_suggestion: @meal_suggestion.content) %>";
+
+// meal_content要素を取得
+var mealContent = document.getElementById("meal_content");
+
+// mealContent要素のinnerHTMLを更新
+mealContent.innerHTML = partialContent;

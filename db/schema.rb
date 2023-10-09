@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_08_035830) do
+ActiveRecord::Schema.define(version: 2023_10_09_062359) do
 
   create_table "activities", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "level", null: false
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2023_10_08_035830) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "calories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "information", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "user_id"
     t.integer "age", null: false
     t.string "sex", null: false
@@ -28,8 +28,15 @@ ActiveRecord::Schema.define(version: 2023_10_08_035830) do
     t.float "weight", null: false
     t.integer "activity_level", null: false
     t.float "weight_to_gain", null: false
-    t.date "start_date", default: "2023-10-08", null: false
+    t.date "start_date", default: "2023-10-09", null: false
     t.date "end_date", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "meals", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "information_id", null: false
+    t.text "content", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
