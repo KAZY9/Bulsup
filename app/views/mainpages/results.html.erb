@@ -1,49 +1,100 @@
-<%= form_with model: @user_info, url: suggest_meal_path, method: :post, local: false do |f| %>
-    <p><%= f.label :sex, "性別" %><br>
-    <%= @user_info.sex %>
-    </p>
-    <p><%= f.label :age, "年齢" %><br> 
-    <%= @user_info.age %><span>歳</span>
-    </p>
+<div class="bulsup-whole-page">
+    <p class="introduction_results">
+        ゲストさんの結果です。
+    </p> 
+    <%= form_with model: @user_info, url: suggest_meal_path, method: :post, local: false do |f| %>
+        <div class="field field_results">
+            <p>
+                <%= f.label :sex, "性別", class: "label" %><br>
+                <div class="sex_field_results">
+                    <%= @user_info.sex %>
+                </div>
+            </p>
+        </div>
 
-    </p>
-    <p><%= f.label :height, "身長" %><br> 
-    <%=  @user_info.height %><span>cm</span>
-    </p>
+        <div class="field field_results">
+            <p>
+                <%= f.label :age, "年齢", class: "label" %><br> 
+                <div class="age_field_results">
+                    <%= @user_info.age %><span>歳</span>
+                </div>
+            </p>
+        </div>
 
-    </p>
-    <p><%= f.label :weight, "体重" %><br>
-    <%= @user_info.weight %><span>kg</span>
-    </p>
+        <div class="field field_results">
+            <p>
+                <%= f.label :height, "身長", class: "label" %><br> 
+                <div class="height_field_results">
+                    <%=  @user_info.height %><span>cm</span>
+                </div>
+            </p>
+        </div>
 
-    <p><%= f.label :activity_amount, "1日の活動レベル" %><br> 
-    <%= @activity.level %>
-    <%= @activity.activity %>
-    </p>
+       <div class="field field_results">
+            <p>
+                <%= f.label :weight, "体重", class: "label" %><br>
+                <div class="weight_field_results">
+                    <%= @user_info.weight %><span>kg</span>
+                </div>
+            </p>
+        </div>
 
-    <p><%= f.label :period_of_bulking, "増量期間" %><br>
-    <%= @formatted_start_date %>から<%= @formatted_end_date %>までの<%= @results[:days_differences] %>日間</p>
+        <div class="field activity-level-field field_results">
+            <p class="activity_results">
+                <%= f.label :activity_amount, "1日の活動レベル", class: "label label_results" %><br> 
+                <div class="activity_level_results">
+                    <%= @activity.level %>
+                </div>
+                <div class="activity_level_results">
+                    <%= @activity.activity %>
+                </div>
+            </p>
+        </div>
 
-    <p><%= f.label :weight_to_gain, "目標増量" %><br>
-    <%= @user_info.weight_to_gain %>kg 増やしたい</p>
+        <div class="field field_results">
+            <p>
+                <%= f.label :period_of_bulking, "増量期間", class: "label" %><br>
+                <%= @formatted_start_date %>から<%= @formatted_end_date %>までの<%= @results[:days_differences] %>日間
+            </p>
+        </div>
+        
+        <div class="field field_results">
+            <p>
+                <%= f.label :weight_to_gain, "目標増量", class: "label" %><br>
+                <%= @user_info.weight_to_gain %><span>kg 増やしたい</span>
+            </p>
+        </div>
 
-    <p><%= f.label :basal_metabolism, "基礎代謝" %><br>
-    <%= @basal_metabolism %><span>kcal</span></p>
+        <div class="field field_results">
+            <p>
+                <%= f.label :basal_metabolism, "基礎代謝", class: "label" %><br>
+                <%= @basal_metabolism %><span>kcal</span>
+            </p>
+        </div>
+   
+        <div class="field field_results">
+            <p>
+                <%= f.label :calorie_consumption, "1日の消費カロリー", class: "label" %><br>
+                <%= @calorie_consumption %><span>kcal</span>
+            </p>
+        </div>
 
-    <p><%= f.label :calorie_consumption, "1日の消費カロリー" %><br>
-    <%= @calorie_consumption %><span>kcal</span></p>
+        <div class="field field_results">
+            <p>
+                <%= f.label :calorie_intake, "1日の必要摂取カロリー", class: "label" %><br>
+                <%= @calorie_intake %><span>kcal</span>
+            </p>
+        </div>
 
-    <p><%= f.label :calorie_intake, "1日の必要摂取カロリー" %><br>
-    <%= @calorie_intake %><span>kcal</span></p>
+        <%= f.hidden_field :information_id, value: @user_info.id %>
 
-    <%= f.hidden_field :information_id, value: @user_info.id %>
+        <div class="btn-field"> 
+            <%= f.submit "1日の必要摂取カロリーを満たす食事内容を表示する", class: "calculate-btn suggest_meal_btn" %>
+        </div>
+    <% end %>
 
-    <%= f.submit "1日の必要摂取カロリーを満たす食事内容を表示する" %>
-<% end %>
-
-----------------------------------------------------------------
-
-<div id="meal_content">
+    <div id="meal_content">
+    </div>
 </div>
 
 

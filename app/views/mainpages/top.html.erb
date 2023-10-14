@@ -1,58 +1,82 @@
-<p>以下の項目を入力・選択してください。</p> 
-<%= form_with  model: @user_info, url: calculate_url, method: :post do |f| %>
-    <% if @user_info.errors.any? %>
-        <ul>
-            <% @user_info.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-            <% end %>
-        </ul>
-    <% end %>
-
-    <div class="field">
-        <%= f.label :sex, '性別' %>
-        <%= f.radio_button :sex, '男性', id: "male" %>
-        <%= f.label :sex_male, '男性', for: "male" %>
-        <%= f.radio_button :sex, '女性', id: "female" %>
-        <%= f.label :sex_female, '女性', for: "female" %>
+<div class="bulsup-whole-page">
+    <div class="bulsup-intro">
+        <%= render 'bulsup_introduction' %>
     </div>
-
-    <div lass="field">
-        <%= f.label :age, "年齢" %><br> 
-        <%= f.text_field :age %><span>歳</span>
-    </div>
-
-    <div lass="field">
-        <%= f.label :height, "身長" %><br> 
-        <%= f.text_field :height %><span>cm</span>
-    </div>
-
-    <div lass="field">
-        <%= f.label :weight, "体重" %><br> 
-        <%= f.text_field :weight %><span>kg</span>
-    </div>
-
-    <div lass="field">
-        <%= f.label :activity_amount, "1日の活動レベル" %><br> 
-        <% @activity_levels.each do |activity_level| %>
-            <%= f.radio_button :activity_level, activity_level.id, id: "activity_#{activity_level.id}" %>
-            <%= f.label :activity_level, for: "activity_#{activity_level.id}" do %>
-                <%= activity_level.level %>
-                <span><%= activity_level.activity %></span>
-            <% end %><br>
+    <p class="introduction">以下の項目を入力・選択してください。</p> 
+    <%= form_with  model: @user_info, url: calculate_url, method: :post, class: "form" do |f| %>
+        <% if @user_info.errors.any? %>
+            <div class="error-message">
+                <ul>
+                    <% @user_info.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                    <% end %>
+                </ul>
+            </div>
         <% end %>
-    </div>
 
-    <div lass="field">
-        <%= f.label :peirod_of_gaining_weight, "増量期間" %><br> 
-        <%= f.date_field :start_date %>から<%= f.date_field :end_date %>まで
-    </div>
+        <div class="field">
+            <%= f.label :sex, '性別', class: "label"%>
+            <div class="radio_button">
+                <%= f.radio_button :sex, '男性', id: "male" %>
+                <%= f.label :sex_male, '男性', for: "male" %>
+                <%= f.radio_button :sex, '女性', id: "female" %>
+                <%= f.label :sex_female, '女性', for: "female" %>
+            </div>
+        </div>
 
-    <div lass="field">
-        <%= f.label :weight_to_gain, "目標増量" %><br> 
-        <%= f.text_field :weight_to_gain %>kg 増やしたい
-    </div>
+        <div class="field">
+            <%= f.label :age, "年齢", class: "label" %>
+            <div class="age_field">
+                <%= f.text_field :age, placeholder: "25" %><span>歳</span>
+            </div>
+        </div>
 
-    <div lass="field"> 
-        <%= f.submit "計算する" %>
-    </div>
-<% end %>
+        <div class="field">
+            <%= f.label :height, "身長", class: "label" %>
+            <div class="height_field">
+                <%= f.text_field :height, placeholder: "171" %><span>cm</span>
+            </div>
+        </div>
+
+        <div class="field">
+            <%= f.label :weight, "体重", class: "label" %>
+            <div class="weight_field">
+                <%= f.text_field :weight, placeholder: "62" %><span>kg</span>
+            </div>
+        </div>
+
+        <div class="field activity-level-field">
+            <%= f.label :activity_amount, "1日の活動レベル", class: "label" %>
+            <% @activity_levels.each do |activity_level| %>
+                <div class="activity-level-elment">
+                    <%= f.radio_button :activity_level, activity_level.id, id: "activity_#{activity_level.id}" %>
+                    <%= f.label :activity_level, for: "activity_#{activity_level.id}" do %>
+                        <span class="activity_level"><%= activity_level.level %></span>
+                        <div class="activity_detail">
+                            <%= activity_level.activity %>
+                        </div>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+
+        <div class="field peirod_of_gaining_weight_field">
+            <%= f.label :peirod_of_gaining_weight, "増量期間", class: "label" %>
+            <div class="date_field">
+                <%= f.date_field :start_date, value: Date.today %><span>から</span><%= f.date_field :end_date %><span>まで</span>
+            </div>
+        </div>
+
+        <div class="field weight_to_gain_field_whole">
+            <%= f.label :weight_to_gain, "目標増量", class: "label" %>
+            <div class="weight_to_gain_field">
+                <%= f.text_field :weight_to_gain %><span>kg 増やしたい</span>
+            </div>
+        </div>
+
+        <div class="btn-field"> 
+            <%= f.submit "計算する", class: "calculate-btn" %>
+        </div>
+    <% end %>
+</div>
+

@@ -1,3 +1,198 @@
 // Place all the styles related to the mainpages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+/* mainpageのCSS */
+
+body {
+  background-color: rgb(247, 241, 242);
+}
+
+.bulsup-whole-page {
+  margin: 0 auto;
+  width: 680px;
+}
+
+.bulsup-intro {
+  width: 680px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  padding: 10px;
+  border: 1px solid rgb(194, 186, 186);
+  background-color: #fff;
+}
+
+.introduction, .introduction_results {
+  font-size: 15px;
+  margin: 0 auto;
+  width: 680px;
+}
+
+.error-message {
+  border: 1px solid rgb(231, 118, 118);
+  margin: 10px auto;
+  width: 95%;
+  li {
+    color: rgb(231, 118, 118);
+  }
+}
+
+.form {
+  margin: 0 auto;
+  width: 680px;
+}
+
+.field {
+  display: flex;
+  margin: 25px;
+}
+
+.activity-level-field {
+  flex-flow: column;
+}
+
+.btn-field {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.calculate-btn {
+  background-color: rgb(216, 165, 175);
+  border-radius: 5px !important;
+  border-color: rgb(216, 165, 175);
+  color: #f3f0f0;
+  height: 40px;
+  width: 150px;
+  font-size: 15px;
+}
+
+.calculate-btn:hover {
+  background-color: rgb(193, 135, 146);
+  cursor: pointer;
+}
+
+span {
+  margin: 0 5px;
+}
+
+.radio_button {
+  margin-left: 42px;
+}
+
+input[type="text"] {
+  width: 120px;
+  height: 20px;
+  font-size: 15px;
+  border-radius: 3px;
+  border: 1px solid rgb(100, 100, 100);
+}
+
+input[type="date"] {
+  width: 120px;
+  height: 25px;
+  font-size: 14px;
+  border-radius: 3px;
+  border: 1px solid rgb(100, 100, 100);
+}
+
+#information_age, #information_height, #information_weight {
+  width: 50px;
+  margin-left: 72px;
+}
+
+.date_field, .weight_to_gain_field {
+  margin-left: 72px;
+}
+
+.activity-level-elment {
+  border: 0.5px solid #e8d6d6;
+  margin: 1px;
+  padding: 5px;
+  width: 485px;
+}
+
+.activity-level-elment:hover {
+  background-color: rgb(243, 221, 223);
+  cursor: pointer;
+}
+
+.activity_level {
+  display: inline-block;
+  width: 92%;
+  margin: 0;
+}
+
+.activity_detail {
+  padding-left: 20px;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.label_results {
+  margin: 0;
+}
+
+.field_results {
+  margin: 0 10px;
+}
+
+.activity_results {
+  margin-bottom: 0;
+}
+
+.activity_level_results {
+  margin-top: 5px;
+}
+
+.sex_field_results, .age_field_results, .height_field_results, .weight_field_results {
+  margin-left: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.suggest_meal_btn {
+  width: 400px;
+}
+
+#meal_content {
+  width: 680px;
+}
+
+.meal_content_title {
+  font-weight: bold;
+}
+
+@media (max-width: 921px) {
+  .bulsup-whole-page, .bulsup-intro, .form, #meal_content {
+    width: 94%;
+  }
+
+  .introduction {
+    width: 94%;
+  }
+
+  .introduction_results {
+    width: 100%;
+  }
+
+  .activity-level-elment {
+    width: 96%;
+  }
+
+  .peirod_of_gaining_weight_field, .weight_to_gain_field_whole {
+    display: block;
+  }
+
+  .date_field, .weight_to_gain_field  {
+    margin-left: 0;
+    margin-top: 5px;
+  }
+
+  .calculate-btn {
+    margin-top: 5px;
+    height: 40px;
+    width: 94%;
+  }
+}
