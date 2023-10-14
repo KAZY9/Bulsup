@@ -6,10 +6,12 @@
 
 body {
   background-color: rgb(247, 241, 242);
+  margin: 0;
 }
 
 .bulsup-whole-page {
   margin: 0 auto;
+  margin-top: 30px;
   width: 680px;
 }
 
@@ -23,7 +25,7 @@ body {
 }
 
 .introduction, .introduction_results {
-  font-size: 15px;
+  font-size: 18px;
   margin: 0 auto;
   width: 680px;
 }
@@ -195,4 +197,21 @@ input[type="date"] {
     height: 40px;
     width: 94%;
   }
+}
+
+/* ヘッダー */
+
+.bulsup-header {
+  height: 80px;
+  background-color: rgb(237, 165, 165);
+  display: flex;
+  align-items: center;
+}
+
+.bulsup_link {
+  text-decoration: none;
+  margin: 0 35px;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(105, 10, 58);
 }
