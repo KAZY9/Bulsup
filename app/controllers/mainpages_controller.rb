@@ -14,6 +14,7 @@ class MainpagesController < ApplicationController
         else
             render :top, status: :unprocessable_entity
         end
+
     end
 
     def results

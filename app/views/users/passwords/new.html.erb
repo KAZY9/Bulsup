@@ -1,0 +1,19 @@
+<div class="bulsup-whole-page">
+  <h2 class="title">パスワードの再設定</h2>
+
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
+
+    <div class="field password_reset_field">
+      <%= f.label :email, "メールアドレス" %><br />
+      <%= f.email_field :email, autofocus: true %>
+    </div>
+
+    <div class="btn-field">
+      <%= f.submit "メールを送信する", class: "password-btn" %>
+    </div>
+  <% end %>
+</div>
+<div class="user_links">
+  <%= render "users/shared/links" %>
+</div>

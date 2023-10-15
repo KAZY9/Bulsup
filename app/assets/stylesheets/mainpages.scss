@@ -9,6 +9,11 @@ body {
   margin: 0;
 }
 
+.notice, .alert {
+  margin: 0 auto;
+  width: 680px;
+}
+
 .bulsup-whole-page {
   margin: 0 auto;
   margin-top: 30px;
@@ -16,7 +21,7 @@ body {
 }
 
 .bulsup-intro {
-  width: 680px;
+  width: 682px;
   margin: 0 auto;
   margin-bottom: 50px;
   padding: 10px;
@@ -58,7 +63,7 @@ body {
   text-align: center;
 }
 
-.calculate-btn {
+.calculate-btn, .signup-btn, .update-btn, .password-btn, .confirmation-btn {
   background-color: rgb(216, 165, 175);
   border-radius: 5px !important;
   border-color: rgb(216, 165, 175);
@@ -68,7 +73,12 @@ body {
   font-size: 15px;
 }
 
-.calculate-btn:hover {
+.confirmation-btn {
+  width: 200px;
+}
+
+.calculate-btn:hover, .signup-btn:hover, .update-btn:hover,
+.password-btn:hover, .confirmation-btn:hover {
   background-color: rgb(193, 135, 146);
   cursor: pointer;
 }
@@ -91,6 +101,31 @@ input[type="text"] {
 
 input[type="date"] {
   width: 120px;
+  height: 25px;
+  font-size: 14px;
+  border-radius: 3px;
+  border: 1px solid rgb(100, 100, 100);
+}
+
+input[type="email"], input[type="password"], #user_name,
+#user_job {
+  width: 260px;
+  height: 25px;
+  font-size: 15px;
+  border-radius: 3px;
+  border: 1px solid rgb(100, 100, 100);
+}
+
+#user_birthdate_1i {
+  width: 60px;
+  height: 25px;
+  font-size: 14px;
+  border-radius: 3px;
+  border: 1px solid rgb(100, 100, 100);
+}
+
+#user_birthdate_2i, #user_birthdate_3i {
+  width: 40px;
   height: 25px;
   font-size: 14px;
   border-radius: 3px;
@@ -166,8 +201,80 @@ input[type="date"] {
   font-weight: bold;
 }
 
+dl dt{
+  width: 300px;
+  padding:10px 0;
+  float:left;
+  clear:both;
+}
+
+dl dd{
+  padding:10px 0;
+}
+
+dl {
+  margin: 0 30px;
+}
+
+.required {
+  color: rgb(231, 118, 118);
+  align-items: baseline;
+  font-size: 13px;
+}
+
+.title {
+  color: rgb(179, 128, 128);
+  border-bottom: 1px solid rgb(203, 153, 153);
+}
+
+.bulsup-login {
+  width: 250px;
+  margin-left: 40px;
+}
+
+.bulsup-login-dd {
+  margin: 0 40px;
+}
+
+.remember_field {
+  margin: 0 120px;
+}
+
+.bulsup_login_field {
+  display: flex;
+  align-items: center;
+  margin: 10px 120px;
+  margin-top: 5px;
+  .login-btn {
+    width: 200px;
+    height: 40px;
+    font-size: 15px;
+    color: #fff;
+    background-color: rgb(231, 118, 118);
+    border-color: rgb(231, 118, 118);
+    border-radius: 5px;
+  }
+  .login-btn:hover {
+    background-color: rgb(190, 81, 81);
+    border-color: rgb(190, 81, 81);
+  }
+  .bulsup_login_link {
+    margin-left: 35px;
+  }
+}
+
+.password_reset_field, .confirmation_resend_field {
+  margin-left: 140px;
+  margin-right: 140px;
+  justify-content: space-around;
+}
+
+.user_links {
+
+}
+
 @media (max-width: 921px) {
-  .bulsup-whole-page, .bulsup-intro, .form, #meal_content {
+  .notice, .alert, .bulsup-whole-page, .bulsup-intro, .form, #meal_content {
     width: 94%;
   }
 
@@ -192,10 +299,101 @@ input[type="date"] {
     margin-top: 5px;
   }
 
-  .calculate-btn {
+  .calculate-btn, .signup-btn, .update-btn, .password-btn, .confirmation-btn {
     margin-top: 5px;
     height: 40px;
     width: 94%;
+  }
+
+  .bulsup_login_field {
+    margin: 10px 150px;
+    margin-top: 5px;
+  }
+
+  .remember_field {
+    margin: 5px 150px 0;
+  }
+
+  .bulsup-login {
+    width: 250px;
+    margin-left: 90px;
+  }
+  
+  .bulsup-login-dd {
+    margin: 0;
+  }
+}
+
+@media (max-width: 765px) {
+  dl dt{
+    width: 300px;
+    padding: 0;
+    float: none;
+    clear: none;
+  }
+
+  dl dt{
+    display: flex;
+    clear: none;
+  }
+
+  dt {
+    margin-top: 15px;
+  }
+
+  dl dd{
+    padding: 0;
+  }
+
+  dd {
+    margin: 0;
+  }
+
+  .dummy {
+    display: none;
+  }
+
+  input[type="email"], input[type="password"], 
+  #user_name, #user_job {
+    width: 100%;
+    margin-top: 5px;
+    height: 30px;
+  }
+
+  #user_birthdate_1i, #user_birthdate_2i, #user_birthdate_3i {
+    height: 30px;
+  }
+
+  .bulsup_login_field {
+    margin: 0 30px;
+    display: block;
+    .login-btn {
+      width: 100%;
+      margin-top: 15px;
+    }
+    .bulsup_login_link {
+      margin-top: 10px;
+      margin-left: 0;
+    }
+  }
+
+  .remember_field {
+    margin: 5px 30px 0;
+  }
+
+  .bulsup-login {
+    width: 250px;
+    margin-left: 0;
+  }
+  
+  .bulsup-login-dd {
+    margin: 0;
+  }
+
+  .password_reset_field, .confirmation_resend_field {
+    display: block;
+    margin-left: 30px;
+    margin-right: 30px;
   }
 }
 
