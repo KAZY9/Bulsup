@@ -269,8 +269,26 @@ dl {
   justify-content: space-around;
 }
 
-.user_links {
+.logout_field {
+  display: flex;
+  justify-content: right;
+}
 
+.logout_link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 85px;
+  height: 23px;
+  font-size: 13px;
+  text-decoration: none;
+  background-color: #a16666;
+  color: #f3f0f0;
+  border-radius: 15px;
+}
+
+.logout_link:hover {
+  background-color: #c69292;
 }
 
 @media (max-width: 921px) {
@@ -403,6 +421,7 @@ dl {
   height: 80px;
   background-color: rgb(237, 165, 165);
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -412,4 +431,83 @@ dl {
   font-size: 20px;
   font-weight: bold;
   color: rgb(105, 10, 58);
+}
+
+#navbar-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 23px;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 25px;
+}
+
+.bar {
+  background-color: #915c5c;
+  width: 30px;
+  height: 3px;
+  transition: all 0s ease-in-out;
+}
+
+.hidden-menu {
+  display: none;
+  position: fixed;
+  top: 80px; 
+  right: 0;
+  width: 200px;
+  height: 100%;
+  padding: 10px 30px 0 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  background-color: rgba(236, 236, 236, 0.95);
+  align-items: center;
+  li {
+    display: block;
+    list-style: none;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1.5px solid rgb(238, 206, 206);
+    a {
+      background-color: transparent;
+      text-decoration: none;
+      color: #915c5c;
+      font-family:'Courier New', Courier, monospace;
+      display: block;
+    }
+    a:hover {
+      color: #a83232;
+    }
+  }
+}
+
+.hidden-menu.open {
+  display: block;
+}
+
+.hidden-menu li:last-child {
+  margin-bottom: 0;
+}
+
+.hidden-menu.open li:last-child {
+  margin-bottom: 0;
+}
+
+
+#navbar-toggle.open .bar {
+  top: 38px;
+  right: 25px;
+  width: 28px;
+  position: absolute;
+}
+ 
+#navbar-toggle.open span:first-child {
+  transform: rotate(45deg);
+}
+
+#navbar-toggle.open span:nth-child(2) {
+  display: none;
+}
+
+#navbar-toggle.open span:last-child {
+  transform: rotate(-45deg);
 }

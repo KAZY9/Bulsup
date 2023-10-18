@@ -9,12 +9,14 @@ class MainpagesController < ApplicationController
     def calculate
         @activity_levels = Activity.all
         @user_info = Information.new(calorie_params)
+        if current_user
+            @user_info.user_id = current_user.id
+        end
         if @user_info.save
-            redirect_to results_path(id: @user_info.id)
+            redirect_to results_path(id: @user_info.id)            
         else
             render :top, status: :unprocessable_entity
         end
-
     end
 
     def results
@@ -60,6 +62,7 @@ class MainpagesController < ApplicationController
 
     def calorie_params
         params.require(:information).permit(
+            :user_id,
             :age,
             :sex,
             :weight, 

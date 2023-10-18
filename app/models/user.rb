@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable
   
+  has_many :information
   validates :name, presence: true
   validate :password_complexity
 
