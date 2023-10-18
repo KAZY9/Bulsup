@@ -2,6 +2,11 @@
 
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+  # before_action :authenticate_user!
+  
+  def check_login_status
+    render json: { loggedIn: user_signed_in? }
+  end
 
   # GET /resource/sign_in
   # def new

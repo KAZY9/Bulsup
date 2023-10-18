@@ -1,7 +1,9 @@
 <div class="bulsup-whole-page">
   <h2 class="title">会員情報変更</h2>
 
-  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+  <div class="logout_field">
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout_link" %>
+  </div>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "users/shared/error_messages", resource: resource %>
     <dl>

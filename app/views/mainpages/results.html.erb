@@ -1,6 +1,10 @@
 <div class="bulsup-whole-page">
     <p class="introduction_results">
-        ゲストさんの結果です。
+        <% if current_user %>
+            <%= current_user.name %>さんの結果です。
+        <% else %>
+            ゲストさんの結果です。
+        <% end %>
     </p> 
     <%= form_with model: @user_info, url: suggest_meal_path, method: :post, local: false do |f| %>
         <div class="field field_results">

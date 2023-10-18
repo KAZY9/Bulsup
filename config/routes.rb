@@ -17,5 +17,6 @@ Rails.application.routes.draw do
     get '/forgot', to: 'users/passwords#new'
     get '/forgot/complete', to: 'users/passwords#complete'
     get '/mypage/edit', to: 'users/registrations#edit'
+    get 'check_login_status', to: 'users/sessions#check_login_status'
   end
 end
