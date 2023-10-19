@@ -1,25 +1,29 @@
-<h2>Change your password</h2>
+<div class="bulsup-whole-page">
+  <h2 class="title">パスワードの変更</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :reset_password_token %>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
+    <%= f.hidden_field :reset_password_token %>
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
-  </div>
+    <dl>
+      <dt class="bulsup-password-new">
+        <%= f.label :password, "新しいパスワード" %>
+      </dt>
+      <dd class="bulsup-password-again">
+        <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+      </dd>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+      <dt class="bulsup-password-new">
+        <%= f.label :password_confirmation, "パスワードの確認" %>
+      </dt>
+      <dd class="bulsup-password-again">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </dd>
+    </dl>
 
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
+    <div class="btn-field">
+      <%= f.submit "変更する", class: "update-btn" %>
+    </div>
+  <% end %>
+</div>
 
-<%= render "devise/shared/links" %>
