@@ -9,9 +9,18 @@ body {
   margin: 0;
 }
 
-.notice, .alert {
+.notice {
   margin: 0 auto;
+  margin-top: 4px;
   width: 680px;
+  color: #5593aa;
+}
+
+.alert {
+  margin: 0 auto;
+  margin-top: 4px;
+  width: 680px;
+  color: #f57775;
 }
 
 .bulsup-whole-page {
@@ -216,6 +225,11 @@ dl {
   margin: 0 30px;
 }
 
+.change-password-caution {
+  font-size: 13.4px;
+  color: #c66868;
+}
+
 .required {
   color: rgb(231, 118, 118);
   align-items: baseline;
@@ -227,12 +241,12 @@ dl {
   border-bottom: 1px solid rgb(203, 153, 153);
 }
 
-.bulsup-login {
+.bulsup-login, .bulsup-password-new {
   width: 250px;
   margin-left: 40px;
 }
 
-.bulsup-login-dd {
+.bulsup-login-dd, .bulsup-password-again {
   margin: 0 40px;
 }
 
@@ -332,12 +346,12 @@ dl {
     margin: 5px 150px 0;
   }
 
-  .bulsup-login {
+  .bulsup-login, .bulsup-password-new {
     width: 250px;
     margin-left: 90px;
   }
   
-  .bulsup-login-dd {
+  .bulsup-login-dd, .bulsup-password-again {
     margin: 0;
   }
 }
@@ -399,12 +413,12 @@ dl {
     margin: 5px 30px 0;
   }
 
-  .bulsup-login {
+  .bulsup-login, .bulsup-password-new {
     width: 250px;
     margin-left: 0;
   }
   
-  .bulsup-login-dd {
+  .bulsup-login-dd, .bulsup-password-again {
     margin: 0;
   }
 

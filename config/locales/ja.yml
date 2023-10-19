@@ -6,6 +6,7 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード確認
+        reset_password_token: パスワードリセット用トークン
         birthdate: 生年月日
         sex: 性別
         job: 職業
