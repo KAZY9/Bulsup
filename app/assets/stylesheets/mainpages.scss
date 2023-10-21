@@ -467,12 +467,13 @@ dl {
   width: 30px;
   height: 3px;
   transition: all 0s ease-in-out;
+  z-index: 100;
 }
 
 .hidden-menu {
   display: none;
   position: fixed;
-  top: 80px; 
+  top: 0; 
   right: 0;
   width: 200px;
   height: 100%;
@@ -501,6 +502,7 @@ dl {
 
 .hidden-menu.open {
   display: block;
+  padding-top: 60px;
 }
 
 .hidden-menu li:last-child {
