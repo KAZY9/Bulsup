@@ -1,5 +1,6 @@
 require 'ruby/openai'
 class MainpagesController < ApplicationController
+    before_action :authenticate_user!, only: [:calculate, :results]
 
     def top
         @activity_levels = Activity.all
