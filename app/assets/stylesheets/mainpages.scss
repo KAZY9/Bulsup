@@ -204,10 +204,15 @@ input[type="email"], input[type="password"], #user_name,
 
 #meal_content {
   width: 680px;
+  margin: 0 auto
 }
 
 .meal_content_title {
   font-weight: bold;
+}
+
+.border {
+  border-bottom: 2px dotted rgb(65, 48, 48);
 }
 
 dl dt{
@@ -525,3 +530,4 @@ dl {
 #navbar-toggle.open span:last-child {
   transform: rotate(-45deg);
 }
+

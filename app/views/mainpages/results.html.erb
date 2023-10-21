@@ -92,14 +92,16 @@
 
         <%= f.hidden_field :information_id, value: @user_info.id %>
 
-        <div class="btn-field"> 
+        <div class="btn-field suggest_meal_field"> 
             <%= f.submit "1日の必要摂取カロリーを満たす食事内容を表示する", class: "calculate-btn suggest_meal_btn" %>
         </div>
+     </div>
     <% end %>
 
     <div id="meal_content">
     </div>
 </div>
+
 
 
 
