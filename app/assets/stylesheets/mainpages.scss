@@ -462,6 +462,10 @@ dl {
   margin-right: 25px;
 }
 
+#navbar-toggle.open {
+  display: none;
+}
+
 .bar {
   background-color: #915c5c;
   width: 30px;
@@ -505,6 +509,14 @@ dl {
   padding-top: 60px;
 }
 
+.hidden-menu.open .bar {
+  top: 38px;
+  right: 25px;
+  width: 28px;
+  position: absolute;
+  cursor: pointer;
+}
+
 .hidden-menu li:last-child {
   margin-bottom: 0;
 }
@@ -513,23 +525,18 @@ dl {
   margin-bottom: 0;
 }
 
-
 #navbar-toggle.open .bar {
-  top: 38px;
-  right: 25px;
-  width: 28px;
-  position: absolute;
-}
- 
-#navbar-toggle.open span:first-child {
-  transform: rotate(45deg);
-}
-
-#navbar-toggle.open span:nth-child(2) {
   display: none;
 }
 
-#navbar-toggle.open span:last-child {
-  transform: rotate(-45deg);
+.hidden-menu.open span:nth-child(1) {
+  transform: rotate(45deg);
 }
 
+.hidden-menu.open span:nth-child(2) {
+  display: none;
+}
+
+.hidden-menu.open span:nth-child(3) {
+  transform: rotate(-45deg);
+}
