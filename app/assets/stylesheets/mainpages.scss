@@ -310,6 +310,17 @@ dl {
   background-color: #c69292;
 }
 
+.user_delete_btn {
+  text-align: right;
+  .delete-btn {
+    border-radius: 5px;
+    border: 1px solid;
+  }
+  .delete-btn:hover {
+    background-color: #e1d9d9;
+  }
+}
+
 @media (max-width: 921px) {
   .notice, .alert, .bulsup-whole-page, .bulsup-intro, .form, #meal_content {
     width: 94%;
@@ -358,6 +369,11 @@ dl {
   
   .bulsup-login-dd, .bulsup-password-again {
     margin: 0;
+  }
+
+  .user_delete_btn {
+    width: 94%;
+    margin: 0 auto;
   }
 }
 
