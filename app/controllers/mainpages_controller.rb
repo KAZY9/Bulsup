@@ -1,6 +1,6 @@
 require 'ruby/openai'
 class MainpagesController < ApplicationController
-    before_action :authenticate_user!, only: [:calculate, :results]
+    before_action :authenticate_user!, only: [:calculate, :results, :suggest_meal]
 
     def top
         @activity_levels = Activity.all
@@ -30,11 +30,16 @@ class MainpagesController < ApplicationController
     end
 
     def suggest_meal
-        @user_info = Information.find(params[:information][:information_id])
-        calculate_calorie
-        @query = "体重増量のために合計" + @calorie_intake.to_s + "kcalになる1日の食事内容を量g、個数、カロリーなども含めて正確に具体的に教えてください。アルコールは含めないでください。"
-        set_chatgpt
-        @meal_suggestion = Meal.create(information_id: @user_info.id, content: @chats)
+        if params[:information].present?
+            @user_info = Information.find(params[:information][:information_id])
+            calculate_calorie
+            @query = "体重増量のために合計" + @calorie_intake.to_s + "kcalになる1日の食事内容を量g、個数、カロリーなども含めて正確に具体的に教えてください。アルコールは含めないでください。"
+            set_chatgpt
+            @meal_suggestion = Meal.create(information_id: @user_info.id, content: @chats)
+            respond_to do |format|
+                format.js
+            end
+        end
     end
 
     private
@@ -49,7 +54,6 @@ class MainpagesController < ApplicationController
                 model: "gpt-3.5-turbo",
                 messages: [{role: "user", content: @query}],
             })
-        puts response
         @chats = response.dig("choices", 0, "message", "content")
     end
 
