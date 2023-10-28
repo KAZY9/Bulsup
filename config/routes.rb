@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations'
   }
   devise_scope :user do
+    post '/guest_sign_in', to: 'users/sessions#guest_sign_in'
     get '/sign_up', to: 'users/registrations#new'
     get '/sign_up/complete', to: 'users/registrations#complete'
     post '/sign_up/complete', to: 'users/registrations#create'
