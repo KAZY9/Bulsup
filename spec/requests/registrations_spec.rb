@@ -77,5 +77,30 @@ RSpec.describe "Registrations", type: :request do
         expect(user.password_confirmation).to eq('Password1!')
       end
     end
+    context 'ユーザーがログインしていない場合' do
+      it '会員情報編集画面に遷移できない' do
+        get '/mypage/edit'
+        expect(response).to redirect_to '/users/sign_in'
+      end
+      it '会員情報を更新できない' do
+        put '/users'
+        expect(response).to redirect_to '/users/sign_in'
+      end
+    end
+  end
+
+  describe 'DELETE /users', type: :request do
+    context 'ユーザーがログインしている場合' do
+      let(:user) { FactoryBot.create(:user) }
+      before { sign_in user}
+      it '退会ボタンを押すとユーザーが１つ減る' do
+        expect { delete '/users' }.to change { User.count }.by(-1)
+      end
+    end
+    context 'ユーザーがログインしていない場合' do
+      it '退会ボタンを押してもユーザーが減らない' do
+        expect { delete '/users' }.to change { User.count }.by(0)
+      end
+    end
   end
 end

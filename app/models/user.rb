@@ -32,16 +32,17 @@ class User < ApplicationRecord
     end
   end
 
-  def generate_password
+  def self.generate_password
     length = rand(8..32)
     chars = [('a'..'z'), ('A'..'Z'), ('0'..'9'), ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')']].map(&:to_a).flatten
-    password = Array.new(length) { chars.sample }.join
   
-    # パスワードが少なくとも1つの英字、数字、特殊文字を含むことを確認
-    unless password.match?(/\A(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()])\S{8,32}\z/)
-      generate_password
-    else
-      password
+    loop do
+      password = Array.new(length) { chars.sample }.join
+
+      # パスワードが少なくとも1つの英字、数字、特殊文字を含むことを確認
+      if password.match?(/\A(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()])\S{8,32}\z/)
+        return password
+      end
     end
   end
 
