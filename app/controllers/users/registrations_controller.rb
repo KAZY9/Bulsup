@@ -3,6 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_account_update_params, only: [:update]
   before_action :sign_in_required, only: [:edit, :update]
+  before_action :ensure_normal_user, only: [:update, :destroy]
 
   def new
     @user = User.new
@@ -29,6 +30,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   private
+
+  def ensure_normal_user
+    if resource.email == 'guest@example.com'
+        redirect_to root_path, alert: 'ゲストユーザーの更新・削除はできません。'
+    end
+  end
 
   def update_resource(resource, params)
     resource.update_without_current_password(params)

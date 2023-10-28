@@ -1,4 +1,7 @@
 <div class="bulsup-whole-page">
+    <div class="guest-login">
+        <%= link_to 'ゲストとしてログイン', guest_sign_in_path, method: :post, class: "guest-login-link" %>
+    </div>
     <div class="bulsup-intro">
         <%= render 'bulsup_introduction' %>
     </div>

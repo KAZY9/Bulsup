@@ -29,6 +29,18 @@ body {
   width: 680px;
 }
 
+.guest-login {
+  width: 682px;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  .guest-login-link {
+    color: #7562b3;
+  }
+  .guest-login-link:hover {
+    color: #9c86e3;
+  }
+}
+
 .bulsup-intro {
   width: 682px;
   margin: 0 auto;
@@ -327,7 +339,7 @@ dl {
 }
 
 @media (max-width: 921px) {
-  .notice, .alert, .bulsup-whole-page, .bulsup-intro, .form, #meal_content {
+  .notice, .alert, .bulsup-whole-page, .guest-login, .bulsup-intro, .form, #meal_content {
     width: 94%;
   }
 
