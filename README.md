@@ -16,6 +16,7 @@ http://43.207.212.104/ <br >
 ・Ruby 3.2.2  
 ・Ruby on Rails 6.1.7  
 ・React  
+・ChatGpt API
 ・Mysql 8.0  
 ・Nginx  
 ・Unicorn  
