@@ -50,6 +50,7 @@ test:
 #
 production:
   <<: *default
-  database: Bulsup_production
-  username: Bulsup
-  password: <%= ENV['BULSUP_DATABASE_PASSWORD'] %>
+  host: <%= ENV['BULSUP_HOST'] %>
+  database: <%= ENV['BULSUP_DB'] %>
+  username: <%= ENV['BULSUP_DB_USER'] %>
+  password: <%= ENV['BULSUP_DB_PASSWORD'] %>

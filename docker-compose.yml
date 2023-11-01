@@ -1,21 +1,26 @@
 version: '3'
 services:
   web:
-    build: .
-    command: bundle exec unicorn -p 3000 -c /app/config/unicorn.rb
+    build:
+      context: .
+      args:
+        - SECRET_KEY_BASE = <%= ENV['SECRET_KEY_BASE'] %>
+    command: sh -c "rm -f tmp/pids/unicorn.pid && bundle exec unicorn_rails -c ./config/unicorn.rb -E production"
     # command: sh -c "rm -f tmp/pids/server.pid && rails s -p 3000 -b '0.0.0.0'"
     volumes:
-      - .:/app
+      - .:/var/www/Bulsup
+    environment:
+      - NODE_OPTIONS=--openssl-legacy-provider
     ports:
       - 3000:3000
-    depends_on:
-      - db
-  db:
-    image: mysql:8.0
-    volumes:
-      - db-volume:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: <%= ENV['DOCKER_DB_PASSWORD'] %>
+  #   depends_on:
+  #     - db
+  # db:
+  #   image: mysql:8.0
+  #   volumes:
+  #     - db-volume:/var/lib/mysql
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: <%= ENV['DOCKER_DB_PASSWORD'] %>
   nginx:
     build:
       context: ./nginx
@@ -24,10 +29,12 @@ services:
       - 80:80
     restart: always
     volumes:
-      - tmp-data:var/www/bulsup/tmp/sockets
-      - /var/www/bulsup/public
+      - tmp-data:var/www/bulsup/tmp
+      - /var/www/Bulsup/public:/var/www/Bulsup/public
+      - /var/www/Bulsup/log:/var/www/Bulsup/log
+      - /var/www/Bulsup/tmp/sockets:/var/www/Bulsup/tmp/sockets
     depends_on:
       - web
 volumes:
-  db-volume:
+  # db-volume:
   tmp-data:
