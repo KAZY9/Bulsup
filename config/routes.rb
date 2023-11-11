@@ -20,4 +20,5 @@ Rails.application.routes.draw do
     get '/mypage/edit', to: 'users/registrations#edit'
     get 'check_login_status', to: 'users/sessions#check_login_status'
   end
+  get '*path', to: redirect('/')
 end
